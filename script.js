@@ -1,51 +1,44 @@
 //complete this code
-class Animal {
-	constructor(species){
-	this._species = species
-	}
-	get species(){
-	return this._species
-	}
-	makeSound(){
-		console.log("The Siamese makes a sound")
-	}
+class Rectangle {
+  constructor(width, height) {
+    this._width = width;
+    this._height = height;
+  }
+
+  get width() {
+    return this._width;
+  }
+
+  get height() {
+    return this._height;
+  }
+
+  getArea() {
+    return this._width * this._height;
+  }
 }
 
+class Square extends Rectangle {
+  constructor(side) {
+    super(side, side);
+  }
 
-class Dog extends Animal {
-	bark(){
-		console.log("woof")
-	}
+  getPerimeter() {
+    return 4 * this.width;
+  }
 }
 
-class Cat extends Animal {
-	purr(){
-		console.log("purr")
-	}
-}
+// Example usage:
 
-const animal = new Animal("Unknown");
-console.log(animal.species); // Output: Unknown
-animal.makeSound(); // Output: Some generic animal sound
+const rectangle = new Rectangle(5, 8);
+console.log('Rectangle Width:', rectangle.width); // Output: 5
+console.log('Rectangle Height:', rectangle.height); // Output: 8
+console.log('Rectangle Area:', rectangle.getArea()); // Output: 40
 
-const cat = new Cat("Cat");
-console.log(cat.species); // Output: Cat
-cat.makeSound(); // Output: Some generic animal sound
-cat.purr(); // Output: purr
+const square = new Square(6);
+console.log('Square Side:', square.width); // Output: 6
+console.log('Square Area:', square.getArea()); // Output: 36
+console.log('Square Perimeter:', square.getPerimeter()); // Output: 24
 
-const dog = new Dog("Dog");
-console.log(dog.species); // Output: Dog
-dog.makeSound(); // Output: Some generic animal sound
-dog.bark(); // Output: woof
-
-
-
-
-
-
-
-
-// Do not change the code below this line
-window.Animal = Animal;
-window.Dog = Dog;
-window.Cat = Cat;
+window.Rectangle = Rectangle;
+window.Square = Square;
